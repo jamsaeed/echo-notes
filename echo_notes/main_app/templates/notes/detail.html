@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {%block content%}
+<div class="detailDiv">
+<a href="{% url 'note_form' %}"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="lucide lucide-file-plus-icon lucide-file-plus"
+  >
+    <path
+      d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
+    />
+    <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+    <path d="M9 15h6" />
+    <path d="M12 18v-6" /></svg
+></a>
+<h1>{{note.title}}</h1>
+<p class="note_content">{{note.note_text}}</p>
+
+<span>created at: {{note.created_at}}</span>
+
+<select name="voice-select" id="voice-select">
+  <option value="">choose a voice...</option>
+</select>
+
+<button id="read-aloud-btn">Read Aloud</button>
+<button id="stop-btn">Cancel</button>
+
+{% if note.updated_at %}
+<span>updated at: {{note.updated_at}}</span>
+{% else %}
+<p style="visibility: hidden">updated at:<span>{{note.updated_at}}</span></p>
+{% endif %}
+<a href="{% url 'note_delete' note.id %}">Delete</a>
+</div>
+
+<script>
+  let voices = []
+  speechSynthesis.onvoiceschanged = () => {
+    voices = speechSynthesis.getVoices()
+    console.log("this many voices", voices.length)
+
+    const selectVoice = document.querySelector("#voice-select")
+
+    voices.forEach((voice, index) => {
+      const voicesOption = document.createElement("option")
+      voicesOption.value = index
+      voicesOption.textContent = voice.name
+      selectVoice.appendChild(voicesOption)
+    })
+  }
+
+  const button = document.querySelector("#read-aloud-btn")
+  const pauseBtn = document.querySelector("#stop-btn")
+  const textSpeech = document.querySelector(".note_content").innerText
+
+  button.addEventListener("click", () => {
+    //handle resume when paused
+    if (speechSynthesis.paused && speechSynthesis.speaking) {
+      speechSynthesis.resume()
+      button.innerText = "Pause"
+      // handle pause
+    } else if (speechSynthesis.speaking) {
+      speechSynthesis.pause()
+      button.innerText = "Resume"
+      // start fresh
+    } else {
+      const speech = new SpeechSynthesisUtterance(textSpeech)
+
+      const selectVoice = document.querySelector("#voice-select")
+      const selecting = selectVoice.value
+
+      if (selecting != "") {
+        speech.voice = voices[selecting]
+      }
+
+      window.speechSynthesis.speak(speech)
+      button.innerText = "Pause"
+    }
+  })
+
+  // handle cancel
+  pauseBtn.addEventListener("click", () => {
+    window.speechSynthesis.cancel()
+    button.textContent = "Read Aloud"
+  })
+</script>
+
+{%endblock%}

@@ -37,7 +37,7 @@
 {% else %}
 <p style="visibility: hidden">updated at:<span>{{note.updated_at}}</span></p>
 {% endif %}
-<a href="{% url 'note_delete' note.id %}">Delete</a>
+<a href="{% url 'note_delete' note.id %}" class="delete-a">Delete</a>
 </div>
 
 <script>

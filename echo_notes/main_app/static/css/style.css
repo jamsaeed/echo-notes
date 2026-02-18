@@ -1,8 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Math&family=Patrick+Hand&family=VT323&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Math&family=Patrick+Hand&family=VT323&display=swap"); */
 
+@import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&family=Noto+Sans+Math&family=Patrick+Hand&family=VT323&display=swap");
+
+/* ===== BODY ===== */
 body {
-  margin: 0px;
-  height: 100vh;
+  margin: 0;
+  min-height: 100vh;
   background-color: rgb(255, 249, 242);
   background-image: linear-gradient(
       to top,
@@ -14,84 +17,52 @@ body {
   background-size: 100% 100%, 20px 20px, 20px 20px;
   font-family: "Patrick Hand", cursive;
   font-weight: 300;
-  font-style: normal;
   font-size: 18px;
+  overflow-x: hidden;
+  /* background-position: fixed; */
 }
 
-.side-bar {
-  width: 250px;
-  height: 100vh;
-  background: linear-gradient(180deg, #94a3d5 0%, #7d8db8 100%);
+/* ===== SIDEBAR ===== */
+.sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  bottom: 0;
+  width: 83px; /* collapsed width */
+  height: 100%;
   z-index: 1000;
+  background: linear-gradient(180deg, #94a3d5 0%, #7d8db8 100%);
+  transition: width 400ms;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* .sidebar.collapsed {
- width: 70px;
+/* Expand on hover */
+.sidebar:hover {
+  width: 436px;
 }
 
-.sidebar-header {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
+/* Shift main content on sidebar hover */
+.sidebar:hover ~ #main-content {
+  transform: translateX(353px); /* 436 - 83 */
+  opacity: 0.4;
+  transition: transform 400ms, opacity 400ms;
 }
 
-.sidebar-title{
-  color: rgb(255, 255, 255);
-  font-size: 25px;
-  font-weight: 600;
-  margin: 0;
-  white-space: nowrap;
-  transition: opacity 0.3s ease;
-}
-
-.sidebar.sidebar.collapsed .sidebar-title{
-  opacity: 0;
-  display: none;
-}
-
-.collapsed-btn {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-.collapsed-btn:hover{
-  background: rgba(255, 255, 255, 0.3);
-} */
-
-/**/
-.side-bar ul {
-  list-style: none;
+/* ===== NAV ITEMS ===== */
+.head-nav {
+  margin: 3rem 0 0 0; /* more space from top */
   padding: 0;
-  /* margin: 20px 0; */
-  margin: 1.85rem 0 0 0;
+  list-style: none;
 }
 
-.side-bar li {
-  margin: 5px 0;
+.head-nav li {
+  position: relative;
   clear: both;
   width: 100%;
-  padding: 0;
+  padding: 0.75rem 0; /* vertical spacing */
+  margin-bottom: 0.5rem; /* spacing between items */
   transition: background 400ms;
 }
 
-.side-bar li::before {
+.head-nav li::before {
   position: absolute;
   left: -0.925rem;
   top: 0;
@@ -103,159 +74,288 @@ body {
   transition: background 400ms;
 }
 
-.side-bar li:hover {
-  background-color: rgba(255, 255, 255, 0.608);
+.head-nav li:hover {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-.side-bar li:hover::before {
-  background-color: rgba(255, 255, 255, 0.608);
+.head-nav li:hover::before {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-.side-bar li:hover a {
+.head-nav li:hover a {
   color: #636c8e;
 }
 
-.side-bar a {
+/* ===== NAV LINKS ===== */
+.head-nav a {
+  display: flex;
   align-items: center;
+  gap: 0.75rem; /* spacing between icon and text */
   width: 100%;
   color: #fefefe;
   text-decoration: none;
   transition: color 400ms;
+  padding: 0.75rem 1rem;
 }
 
-.side-bar a span {
+.head-nav a span {
   position: relative;
   display: block;
   z-index: 0;
   font-family: "Patrick Hand", cursive;
-  text-indent: -20em;
+  text-indent: -20em; /* hidden when collapsed */
   white-space: nowrap;
   transition: text-indent 400ms ease-in-out;
 }
 
-.side-bar svg {
-  position: relative;
-  max-width: 80px;
-  max-height: 30px;
-  z-index: 1;
-  transition: 400ms;
-}
-
-
-.sidebar {
-  position: fixed;
-  bottom: 0;
-  width: 83px;
-  height: 100%;
-  z-index: 1;
-  background: linear-gradient(180deg, #94a3d5 0%, #7d8db8 100%);
-  transition: width 400ms;
-}
-
-.sidebar:hover {
-  width: 436px;
-}
-
-.sidebar:hover + .wrap-all-the-things {
-  transform: translateX(336px);
-  max-width: 100%;
-  opacity: 0.4;
-}
-
+/* Show text on hover */
 .sidebar:hover .head-nav span {
   text-indent: 0;
 }
 
-/* Transition delays from @for loop */
+/* Transition delays for staggered animation */
 .sidebar:hover .head-nav li:nth-of-type(1) span {
   transition-delay: 100ms;
 }
-
 .sidebar:hover .head-nav li:nth-of-type(2) span {
   transition-delay: 200ms;
 }
-
 .sidebar:hover .head-nav li:nth-of-type(3) span {
   transition-delay: 300ms;
 }
-
 .sidebar:hover .head-nav li:nth-of-type(4) span {
   transition-delay: 400ms;
 }
 
-/* .nav-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border-left: 3px solid transparent;
-}
-
-.nav-link:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-left-color: white;
-  color: white;
-  box-shadow: none;
-}
-
-.nav-icon {
-  font-size: 20px;
-  min-width: 20px;
-}
-
-.nav-text {
-  white-space: nowrap;
-  transition: opacity 0.3s ease;
-}
-
-.sidebar.collapsed .nav-text {
-  opacity: 0;
-  display: none;
-}
-
-.sidebar.collapsed .nav-link {
-  justify-content: center;
-  padding: 12px;
+.head-nav svg {
+  position: relative;
+  max-width: 40px; /* smaller icon size */
+  max-height: 40px;
+  z-index: 1;
+  transition: 400ms;
 }
 
 /* ===== MAIN CONTENT ===== */
-.main-content {
-  margin-left: 250px;
-  padding: 40px;
-  transition: all 0.3s ease;
-  min-height: 100vh;
-}
-
 #main-content {
-   min-height: 100%;
+  min-height: 100vh;
   height: 100%;
-  padding-left: 140px;
+  padding-left: 100px;
   margin-top: 0;
-
   background-size: cover;
   background-position: center center;
   transition: transform 400ms, opacity 400ms;
 }
 
-/* .main-content.expanded {
-  margin-left: 70px;
-} */
-
-/* ===== GENERAL LINKS (not in nav) ===== */
-/* main a {
-  color: #d63384;
-  padding: 5px 10px;
-  text-decoration: none;
-  border-radius: 7px;
-  transition: all 0.3s ease;
-  display: inline-block;
+/* ===== MEDIA QUERY ===== */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  .sidebar:hover {
+    width: 300px;
+  }
+  #main-content {
+    padding-left: 70px;
+  }
+  .head-nav svg {
+    max-width: 24px;
+    max-height: 24px;
+  }
 }
 
-main a:hover {
-  color: white;
-  background-color: #ffb3a7;
-  box-shadow: 0 0 10px rgba(182, 132, 125, 0.5);
+/* ===== NOTE FORM - GRID STYLE ===== */
+.note-form-container {
+  width: calc(100% - 100px);
+  max-width: 1000px;
+  margin: 4rem auto 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 249, 242, 0);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.note-form input,
+.note-form textarea {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px dashed rgba(125, 141, 184, 0.5);
+  border-radius: 4px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.404);
+  color: #333;
+  line-height: 1.4;
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.note-form textarea {
+  min-height: 360px;
+  line-height: 1.8;
+}
+
+.note-form input.note-title {
+  margin-top: 1.5rem;
+}
+
+.note-form .btn.note-submit {
+  background-color: #7d8db8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Patrick Hand", cursive;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.note-form .btn.note-submit:hover {
+  background-color: #94a3d5;
+  transform: translateY(-1px);
+}
+
+/* ===== MEDIA QUERY ===== */
+@media screen and (max-width: 768px) {
+  .note-form-container {
+    width: calc(100% - 40px);
+    margin: 1.5rem 1rem;
+    padding: 1rem;
+  }
+
+  .note-form .btn.note-submit {
+    width: 100%;
+  }
+}
+
+/* .all-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.note-card {
+  background-color: #ffc1c195;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 } */
+/* .all-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.note-card {
+  background-color: #ffc1c195;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(73, 72, 72, 0.15);
+} */
+
+.all-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 30px 0;
+}
+
+/* Sticky Note Style */
+.note-card {
+  background: #fff8a6;
+  padding: 25px;
+  border-radius: 2px;
+  min-height: 220px;
+  position: relative;
+  box-shadow:
+    0 8px 15px rgba(0, 0, 0, 0.15),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.05);
+
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Random slight rotation for each note */
+.note-card:nth-child(2n) {
+  transform: rotate(2deg);
+  background: #ffd6e0;
+}
+
+.note-card:nth-child(3n) {
+  transform: rotate(-3deg);
+  background: #caffbf;
+}
+
+/* Default rotation */
+.note-card {
+  transform: rotate(-2deg);
+}
+
+.note-card:nth-child(4n + 1) {
+  background: #efd5fe; /* lavender */
+  transform: rotate(-2deg);
+}
+
+
+
+/* Hover effect — straighten + lift */
+.note-card:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+.note-card::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  background: rgba(255,255,255,0.6);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  border-radius: 4px;
+}
+
+
+#main-content a {
+  background-color: #ffeaea;
+  border-radius: 4px;
+  color: #ff8b8b;
+  text-decoration: none;
+}
+
+#main-content a:hover {
+  background-color: #e0e5ee;
+  color: #7d8db8;
+}
+
+#main-content a.delete-a {
+  color: red;
+}
+
+#main-content a.delete-a:hover {
+  background-color: #eee0e0;
+  color: #6a1d1d;
+}
+
+

@@ -358,4 +358,190 @@ body {
   color: #6a1d1d;
 }
 
+/* ===== DETAIL PAGE - FOCUSED STICKY ===== */
+.detailDiv {
+  max-width: 750px;
+  margin: 5rem auto;
+  padding: 3rem;
+  background: #fff8a6;
+  position: relative;
+  border-radius: 2px;
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.18),
+    inset 0 -15px 20px rgba(0, 0, 0, 0.05);
+  transform: rotate(-1deg);
+}
 
+/* subtle tape */
+.detailDiv::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 22px;
+  background: rgba(255,255,255,0.6);
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  border-radius: 4px;
+}
+
+/* title */
+.detailDiv h1 {
+  margin-top: 0;
+  font-size: 2.3rem;
+  color: #444;
+}
+
+/* content */
+.note_content {
+  margin: 2rem 0;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+/* meta info */
+.detailDiv span {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+/* speech controls container */
+.speech-controls {
+  margin-top: 1.5rem;
+}
+
+/* ===== BUTTON ROW ===== */
+.detailDiv .button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ===== PAPERCLIP BUTTON BASE ===== */
+.detailDiv button,
+.detailDiv .delete-btn {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 2px solid #d1c28d;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff8a6,
+    #fff8a6 2px,
+    #fff3a0 3px,
+    #fff8a6 4px
+  );
+  color: #5a3b00;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 3px 3px 0 #d1c28d, inset 0 -1px 0 rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ===== PAPERCLIP VIBES ===== */
+.detailDiv button::before,
+.detailDiv .delete-btn::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 18px;
+  height: 28px;
+  border: 2px solid #999;
+  border-radius: 6px;
+  transform: translateX(-50%) rotate(-10deg);
+  background: transparent;
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.15);
+  pointer-events: none;
+  animation: clipWobble 3s infinite ease-in-out;
+}
+
+/* Tiny fold accent */
+.detailDiv button::after,
+.detailDiv .delete-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  border-right: 2px solid rgba(0,0,0,0.15);
+  transform: rotate(-20deg);
+  border-radius: 2px;
+  background: rgba(255,255,255,0.7);
+}
+
+/* ===== HOVER — lift like paper clipped note ===== */
+.detailDiv button:hover,
+.detailDiv .delete-btn:hover {
+  transform: rotate(-1deg) translateY(-4px);
+  box-shadow: 6px 6px 0 #d1c28d, inset 0 -1px 0 rgba(0,0,0,0.05);
+}
+
+/* ===== ACTIVE PRESS EFFECT ===== */
+.detailDiv button:active,
+.detailDiv .delete-btn:active {
+  transform: rotate(1deg) translateY(2px);
+  box-shadow: 1px 1px 0 #d1c28d inset;
+}
+
+/* ===== COLORS FOR INDIVIDUAL BUTTONS ===== */
+#read-aloud-btn {
+  background: repeating-linear-gradient(
+    45deg,
+    #caffbf,
+    #caffbf 2px,
+    #b7e5a2 3px,
+    #caffbf 4px
+  );
+  border-color: #a8d5a2;
+}
+
+#stop-btn {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffd6e0,
+    #ffd6e0 2px,
+    #f8a5b0 3px,
+    #ffd6e0 4px
+  );
+  border-color: #e8a5b0;
+}
+
+.delete-btn {
+  background: repeating-linear-gradient(
+    45deg,
+    #efd5fe,
+    #efd5fe 2px,
+    #e4b9ff 3px,
+    #efd5fe 4px
+  );
+  border-color: #dcb9ff;
+  color: #9b2c9b;
+}
+
+/* ===== PAPERCLIP WOBBLE ===== */
+@keyframes clipWobble {
+  0%, 100% { transform: translateX(-50%) rotate(-10deg); }
+  25% { transform: translateX(-50%) rotate(-8deg); }
+  50% { transform: translateX(-50%) rotate(-12deg); }
+  75% { transform: translateX(-50%) rotate(-9deg); }
+}
+
+/* Hover effect for the icons */
+.add-note-a svg,
+.delete-a svg {
+  transition: transform 0.2s ease;
+}
+
+.add-note-a:hover svg,
+.delete-a:hover svg {
+  transform: scale(1.4); /* makes the icon bigger on hover */
+}

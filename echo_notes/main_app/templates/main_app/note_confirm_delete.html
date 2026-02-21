@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="confirm-delete-container">
+<h1 class="confirm-delete-h1">Delete Note </h1>
+<h4 class="confirm-delete-h4">are you sure you want to delete {{note.title}} note ? </h4>
 
-<h1>Delete Note </h1>
-<h4>are you sure you want to delete {{note.title}} note ? </h4>
-
-<form action="" method="post">
+<form action="" method="post" class="confirm-delete-form">
   {% csrf_token %}
   <input type="submit"
   value="Yes - Delete!!"
-  class="btn">
-  <a href="{% url 'detail'  note.id %}">Cancel</a>
+  class="confirm-delete-btn">
+  <a href="{% url 'detail'  note.id %}" class="confirm-delete-cancel">Cancel</a>
 </form>
-
+</div>
 {% endblock %}

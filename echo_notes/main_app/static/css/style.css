@@ -20,6 +20,9 @@ body {
   font-size: 18px;
   overflow-x: hidden;
   /* background-position: fixed; */
+
+
+
 }
 
 /* ===== SIDEBAR ===== */
@@ -714,4 +717,25 @@ body {
 
 #index-icon:hover svg {
   transform: scale(1.3);    /* grow on hover */
+}
+
+.created-at {
+   display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 25px;
+  /* text-align: center; */
+
+}
+
+.titles {
+  text-align: center;
+  font-size: 25px;
+  background-color: #fefefe82;
+  /* max-width: 40%; */
+  width: 55%;
+  border-radius: 12px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  color: black;
 }

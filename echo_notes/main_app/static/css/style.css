@@ -739,3 +739,177 @@ body {
   padding: 0.5rem 1rem;
   color: black;
 }
+
+/* ===== LOGIN PAGE STYLING ===== */
+.login-wrapper {
+  background-color: #fff9f0; /* soft paper color */
+  margin: 50px auto;
+  padding: 40px 30px;
+  width: 35%;
+  min-width: 300px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15),
+              inset 0 -5px 10px rgba(0,0,0,0.05); /* subtle inner shadow */
+  font-family: 'Patrick Hand', cursive;
+  position: relative;
+  transform: rotate(-0.5deg); /* gives a slight notebook feel */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.2),
+              inset 0 -5px 10px rgba(0,0,0,0.05);
+}
+
+.login-wrapper h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #5a3b00;
+}
+
+.login-wrapper form input[type="text"],
+.login-wrapper form input[type="password"],
+.login-wrapper form input[type="email"] {
+  width: 90%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 2px dashed rgba(125,141,184,0.5);
+  border-radius: 8px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
+  background-color: rgba(255,255,255,0.85);
+  transition: all 0.3s ease;
+}
+
+.login-wrapper form input:focus {
+  outline: none;
+  border-color: #94a3d5;
+  background-color: #fffdf5;
+}
+
+.btn-login {
+  background-color: #7d8db8;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  margin-top: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-login:hover {
+  background-color: #94a3d5;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* responsive for mobile */
+@media screen and (max-width: 768px) {
+  .login-wrapper {
+    width: 80%;
+    padding: 30px 20px;
+  }
+}
+/* ===== SIGNUP PAGE STYLING ===== */
+.signup-wrapper {
+  background-color: #fff9f0; /* soft paper color */
+  margin: 50px auto;
+  padding: 40px 30px;
+  width: 35%;
+  min-width: 300px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15),
+              inset 0 -5px 10px rgba(0,0,0,0.05); /* subtle inner shadow */
+  font-family: 'Patrick Hand', cursive;
+  position: relative;
+  transform: rotate(0deg); /* slight tilt optional */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.2),
+              inset 0 -5px 10px rgba(0,0,0,0.05);
+}
+
+.signup-wrapper h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #5a3b00;
+}
+
+.signup-wrapper form input[type="text"],
+.signup-wrapper form input[type="password"],
+.signup-wrapper form input[type="email"] {
+  width: 90%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 2px dashed rgba(125,141,184,0.5);
+  border-radius: 8px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
+  background-color: rgba(255,255,255,0.85);
+  transition: all 0.3s ease;
+}
+
+.signup-wrapper form input:focus {
+  outline: none;
+  border-color: #94a3d5;
+  background-color: #fffdf5;
+}
+
+.btn-signup {
+  background-color: #7d8db8;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  margin-top: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-signup:hover {
+  background-color: #94a3d5;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* responsive for mobile */
+@media screen and (max-width: 768px) {
+  .signup-wrapper {
+    width: 80%;
+    padding: 30px 20px;
+  }
+}
+
+.btn-add{
+background-color: #7d8db8;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  /* margin-top: 15px; */
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-add:hover {
+  background-color: #94a3d5;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+

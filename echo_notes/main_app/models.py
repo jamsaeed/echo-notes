@@ -9,7 +9,7 @@ class Note(models.Model):
     title = models.CharField(max_length=200)
     note_text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 

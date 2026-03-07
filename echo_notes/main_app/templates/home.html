@@ -1,5 +1,61 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {%block content%}
+<div class="text-center mt-10 px-4">
+  <h1
+    class="text-4xl md:text-5xl font-hand font-bold bg-white/50 rounded-lg inline-block px-4 py-2 mb-4"
+  >
+    Welcome to Echo Notes
+  </h1>
+  <p class="text-lg md:text-xl text-gray-700 mb-6">
+    A cozy space to think, write, and remember with a text-to-speech feature
+  </p>
 
-{%block content%}
-<h1>this is home page </h1>
-{%endblock%}
+  <div class="space-x-4">
+    {% if user.is_authenticated %}
+    <a
+      href="{% url 'index' %}"
+      class="bg-indigo-500 hover:bg-indigo-400 text-white font-hand font-semibold px-6 py-3 rounded-lg shadow-lg transition transform hover:-translate-y-1 inline-block"
+      >Go To My Notes</a
+    >
+
+    {%else%}
+    <a
+      href="{% url 'login' %}"
+      class="bg-indigo-500 hover:bg-indigo-400 text-white font-hand font-semibold px-6 py-3 rounded-lg shadow-lg transition transform hover:-translate-y-1 inline-block"
+      >Login</a
+    >
+    <a
+      href="{% url 'signup' %}"
+      class="bg-green-400 hover:bg-green-300 text-white font-hand font-semibold px-6 py-3 rounded-lg shadow-lg transition transform hover:-translate-y-1 inline-block"
+      >signup</a
+    >
+    {% endif %}
+  </div>
+
+  <div class="max-w-3xl mx-auto mt-16 px-4 grid gap-6 md:grid-cols-2">
+    <div
+      class="bg-yellow-200 p-6 rounded-lg shadow-md transform -rotate-1 hover:rotate-0 hover:scale-105 transition-all"
+    >
+      <h2 class="text-2xl font-bold mb-2">Secure Authentication</h2>
+      <p>Keep your notes safe with login and user management.</p>
+    </div>
+    <div
+      class="bg-pink-200 p-6 rounded-lg shadow-md transform rotate-1 hover:rotate-0 hover:scale-105 transition-all"
+    >
+      <h2 class="text-2xl font-bold mb-2">Manage Notes</h2>
+      <p>Create, read, update, and delete notes easily.</p>
+    </div>
+    <div
+      class="bg-green-200 p-6 rounded-lg shadow-md transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all"
+    >
+      <h2 class="text-2xl font-bold mb-2">Text-to-Speech</h2>
+      <p>Listen to your notes using the built-in TTS feature.</p>
+    </div>
+    <div
+      class="bg-purple-200 p-6 rounded-lg shadow-md transform rotate-2 hover:rotate-0 hover:scale-105 transition-all"
+    >
+      <h2 class="text-2xl font-bold mb-2">Sticky Note Design</h2>
+      <p>Notes are styled like sticky notes for a fun, cozy feel.</p>
+    </div>
+  </div>
+  {%endblock%}
+

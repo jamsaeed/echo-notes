@@ -913,3 +913,266 @@ background-color: #7d8db8;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+
+.logout-item {
+  margin-top: 255px;
+  color: white;
+}
+
+.nav-link-logout-btn {
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+}
+
+.text-center{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  /* Make body text smaller and easier to read */
+  body {
+    font-size: 16px;
+  }
+
+  /* Sidebar: always collapsed, overlay on hover is optional */
+  .sidebar {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+  }
+
+  .sidebar:hover {
+    width: 240px; /* optional */
+  }
+
+  #main-content {
+    padding-left: 60px;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Nav icons smaller, text shows only when expanded */
+  .head-nav a span {
+    display: none;
+  }
+  .sidebar:hover .head-nav a span {
+    display: inline;
+  }
+  .head-nav svg {
+    max-width: 24px;
+    max-height: 24px;
+  }
+
+  /* Notes grid stacked for mobile */
+  .all-notes {
+    grid-template-columns: 1fr; /* full-width single column */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .note-card {
+    min-height: auto;
+    transform: rotate(0deg) !important; /* straighten notes */
+    padding: 20px;
+  }
+
+  /* Forms full width */
+  .note-form-container {
+    width: calc(100% - 30px);
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .note-form input,
+  .note-form textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .note-form .btn.note-submit,
+  .btn-add,
+  .btn-login,
+  .btn-signup {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  /* Titles and headings */
+  .all-note-h1,
+  .titles {
+    width: 90%;
+    font-size: 1.8rem;
+    margin: 0.5rem auto 1rem;
+    text-align: center;
+  }
+
+  /* Login & Signup wrapper full width */
+  .login-wrapper,
+  .signup-wrapper {
+    width: 95%;
+    padding: 20px 15px;
+  }
+
+  /* Detail page notes full width */
+  .detailDiv {
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 2rem;
+    transform: rotate(0deg) !important;
+  }
+
+  .detailDiv button,
+  .detailDiv .delete-btn {
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Confirm delete page */
+  .confirm-delete-container {
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 2rem;
+    transform: rotate(0deg) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Extra small screens: shrink padding, text and buttons */
+  body {
+    font-size: 15px;
+  }
+
+  #main-content {
+    padding-left: 0;
+  }
+
+  .sidebar {
+    display: none; /* hide sidebar on very small screens */
+  }
+
+  .all-notes {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .note-form-container,
+  .login-wrapper,
+  .signup-wrapper {
+    padding: 15px 10px;
+  }
+
+  .note-form input,
+  .note-form textarea {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .note-form .btn.note-submit,
+  .btn-add,
+  .btn-login,
+  .btn-signup {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .all-note-h1,
+  .titles {
+    font-size: 1.5rem;
+    width: 95%;
+  }
+
+  .detailDiv,
+  .confirm-delete-container {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* Detail page container full width and straightened */
+  .detailDiv {
+    max-width: 95%;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    transform: rotate(0deg) !important; /* remove tilt */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
+                inset 0 -5px 10px rgba(0,0,0,0.05);
+  }
+
+  /* Action icons (add/edit/delete) larger and spaced nicely */
+  .detail-action,
+  .detailDiv > a,
+  .detailDiv .delete-a {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .detailDiv .delete-a svg,
+  .detail-action svg,
+  .detailDiv > a svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Title and content scaling */
+  .detailDiv h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .note_content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Speech controls stacked */
+  .speech-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .speech-controls select,
+  #read-aloud-btn,
+  #stop-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  /* Time info */
+  .time {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* Buttons (edit/delete) full width on mobile */
+  .detailDiv button,
+  .detailDiv .delete-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .detailDiv h1 {
+    font-size: 1.7rem;
+  }
+  .note_content {
+    font-size: 0.95rem;
+  }
+  .speech-controls select,
+  #read-aloud-btn,
+  #stop-btn {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+  .detailDiv {
+    padding: 1rem;
+  }
+}
+

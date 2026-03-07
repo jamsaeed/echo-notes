@@ -1,5 +1,32 @@
 {% extends 'base.html' %}
 
 {%block content%}
-<h2>about page</h2>
+<div class="text-center mt-10 px-4">
+  <h1 class="text-4xl md:text-5xl font-hand font-bold bg-white/50 rounded-lg inline-block px-4 py-2 mb-6">
+    About Echo Notes
+  </h1>
+  <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 mb-6">
+    Echo Notes is a passion project designed to help you capture your thoughts and ideas in a fun and interactive way.
+    With secure authentication, a cozy sticky note design, and a built-in text-to-speech feature, your notes are always accessible and engaging.
+  </p>
+
+  <div class="max-w-3xl mx-auto mt-8 px-4 grid gap-6 md:grid-cols-2">
+    <div class="bg-yellow-200 p-6 rounded-lg shadow-md transform -rotate-1 hover:rotate-0 hover:scale-105 transition-all">
+      <h2 class="text-2xl font-bold mb-2">Purpose</h2>
+      <p>To provide a friendly and secure environment for journaling your thoughts digitally.</p>
+    </div>
+    <div class="bg-green-200 p-6 rounded-lg shadow-md transform rotate-1 hover:rotate-0 hover:scale-105 transition-all">
+      <h2 class="text-2xl font-bold mb-2">Features</h2>
+      <p>Create, read, update, delete, and listen to your notes anywhere, anytime.</p>
+    </div>
+    <div class="bg-pink-200 p-6 rounded-lg shadow-md transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all">
+      <h2 class="text-2xl font-bold mb-2">Future Plans</h2>
+      <p>Deploy as a full app with more advanced features and share it on App Stores.</p>
+    </div>
+    <div class="bg-purple-200 p-6 rounded-lg shadow-md transform rotate-2 hover:rotate-0 hover:scale-105 transition-all">
+      <h2 class="text-2xl font-bold mb-2">Design</h2>
+      <p>Inspired by sticky notes and handwriting fonts to create a warm, cozy feel.</p>
+    </div>
+  </div>
+</div>
 {%endblock%}

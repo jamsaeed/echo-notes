@@ -8,6 +8,22 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
+
+def signup(request):
+    error_message = ""
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+        else:
+            error_message = "Invalid Sign Up, Try again later..."
+    form = UserCreationForm()
+    context = {"form": form, "error_message": error_message}
+    return render(request, "registration/signup.html", context)
+
+
 def home(request):
     return render(request, "home.html")
 
@@ -32,25 +48,14 @@ class CreateNote(LoginRequiredMixin, CreateView):
         form.instance.user =self.request.user
         return super().form_valid(form)
 
+class UpdateNote(LoginRequiredMixin, UpdateView):
+    model = Note
+    fields = ['title', 'note_text']
 
 class DeleteNote(LoginRequiredMixin, DeleteView):
     model = Note
     success_url = '/notes/'
 
 
-
-def signup(request):
-    error_message = ""
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect("home")
-        else:
-            error_message = "Invalid Sign Up, Try again later..."
-    form = UserCreationForm()
-    context = {"form": form, "error_message": error_message}
-    return render(request, "registration/signup.html", context)
 
 

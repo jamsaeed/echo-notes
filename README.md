@@ -16,28 +16,31 @@ It combines a warm, sticky-notes-inspired design with practical functionality, o
 
 ### features
 * **Secure Authentication**
-  * Users sign-up and login.
-  * Notes are Private and tied to individual accounts.
-* **Full Note Management(CRUD)**
-  * Full CRUD : Create, Read, Update, and Delete Notes easily.
-* **Text-to-Speech Web Speech API (SpeechSynthesis)**
-  * Playback Controls - Play, pause, resume, and stop audio playback
-*  **Responsive Design**
-   *   Beautiful paper-textured interface with collapsible sidebar
-*  **Modern UI**
-   *  Clean, minimalist design with smooth animations
+  * Users can sign up and log in securely
+  * Notes are private and tied to individual accounts
+
+* **Full Note Management (CRUD)**
+  * Create, read, update, and delete notes with ease
+
+* **Text-to-Speech (Web Speech API - SpeechSynthesis)**
+  * Playback controls: play, pause, resume, and stop audio
+
+* **Responsive Design**
+  * Clean, paper-textured interface with a collapsible sidebar
+
+* **Modern UI**
+  * Minimalist design with smooth animations and intuitive layout
 
 ### Technologies
-**Backend** :
+**Backend**
 - Python
 - Django
-<br/>
 
 **Frontend**
 - HTML
-- CSS + (tailwind css)
-- JS
-- lucide (icons)
+- CSS (Tailwind CSS)
+- JavaScript
+- Lucide Icons
 
 ### Demo
 ### Future Features

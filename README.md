@@ -1,7 +1,7 @@
 # Echo Notes
 
 ## Made By : Jameela Mohammed Saeed
-github: linkedin :
+ [linkedin](https://www.linkedin.com/in/jameela-mohammed-/)
 
 
 
@@ -54,3 +54,8 @@ It combines a warm, sticky-notes-inspired design with practical functionality, o
 - [ ] Expand Echo Notes into a full mobile application (iOS/Android) to improve accessibility and user experience
 
 ### credits/References
+[Sidebar Nav CSS](https://codepen.io/magnificode/pen/bdWYwy)
+[Text-to-speech JS](https://dev.to/devsmitra/convert-text-to-speech-in-javascript-using-speech-synthesis-api-223g)
+[text-to-speech](https://www.hongkiat.com/blog/text-to-speech/)
+[Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+[SpeechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice)

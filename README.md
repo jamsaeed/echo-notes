@@ -1,7 +1,7 @@
 # Echo Notes
 
 ## Made By : Jameela Mohammed Saeed
- [linkedin](https://www.linkedin.com/in/jameela-mohammed-/)
+ [linkedIn](https://www.linkedin.com/in/jameela-mohammed-/)
 
 
 

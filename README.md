@@ -43,6 +43,8 @@ It combines a warm, sticky-notes-inspired design with practical functionality, o
 - Lucide Icons
 
 ### Demo
+---
+---
 ### Future Features
 - [ ] Text highlighting as it's being read
 - [ ] Color picker for highlight customization

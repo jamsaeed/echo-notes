@@ -44,6 +44,21 @@ It combines a warm, sticky-notes-inspired design with practical functionality, o
 
 ### Demo
 ---
+Home page
+![HomePage](echo_notes/main_app/static/images/homePage.png)
+About page
+![AboutPage](echo_notes/main_app/static/images/aboutPage.png)
+SideBar Nav
+![SideBar](echo_notes/main_app/static/images/sidebar.png)
+Sign up
+![SignUp](echo_notes/main_app/static/images/signup.png)
+Add a note
+![CreateNote](echo_notes/main_app/static/images/addnote.png)
+Read/Update Note
+![ReadNote](echo_notes/main_app/static/images/readnote.png)
+Deleting a Note
+![DeleteNote](echo_notes/main_app/static/images/deletenote.png)
+
 ---
 ### Future Features
 - [ ] Text highlighting as it's being read

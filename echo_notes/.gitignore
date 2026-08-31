@@ -1,4 +1,6 @@
 .env
 __pycache__/
-migrations/
+# migrations/
 appsError.txt
+venv/
+staticfiles/

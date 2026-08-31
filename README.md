@@ -13,6 +13,7 @@ Echo Notes is a cozy, user-friendly AI-powered note-taking application with text
 
 It combines a warm, sticky-notes-inspired design with practical functionality, offering a lightweight space to create, organize, and revisit ideas with audio playback support.
 
+Live link: [Echo Notes](https://echo-notes-hoea.onrender.com/)
 
 ### features
 * **Secure Authentication**
